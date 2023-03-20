@@ -20,6 +20,9 @@ after `import ac`, you should be able to use autocomplete.
 
 Now you can check your IDE, autocomplete shall work.
 
+![image](https://user-images.githubusercontent.com/1828532/226488138-4593a54c-8dfe-4f5e-b1a7-dc5ebd8d3081.png)
+
+
 ## Contribution
 You are very welcome to add changes into this code. =)
 Please feel free to push merge/pull requests.
