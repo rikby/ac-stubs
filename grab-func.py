@@ -90,5 +90,5 @@ if __name__ == '__main__':
     ac_functions_str = create_dummy_ac_functions(ac_functions)
 
     # Write the dummy AC module to a Python file
-    with open('AcDummyLib/ac.pyi', 'w') as file:
+    with open('ac/ac.pyi', 'w') as file:
         file.write(ac_functions_str)

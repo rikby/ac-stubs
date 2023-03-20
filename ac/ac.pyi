@@ -10,31 +10,31 @@ def console(value):
 def newApp(value):
     pass
 
-def setTitle(controlo_identifier, title):
+def setTitle(control_identifier, title):
     pass
 
-def setSize(controlo_identifier, width, height):
+def setSize(control_identifier, width, height):
     pass
 
 def addLabel(control_identifier, value):
     pass
 
-def setPosition(controlo_identifier, x, y):
+def setPosition(control_identifier, x, y):
     pass
 
-def setIconPosition(controlo_identifier, x, y):
+def setIconPosition(control_identifier, x, y):
     pass
 
-def setTitlePosition(controlo_identifier, x, y):
+def setTitlePosition(control_identifier, x, y):
     pass
 
-def getPosition(controlo_identifier):
+def getPosition(control_identifier):
     pass
 
 def setText(control_identifier, value):
     pass
 
-def getText(controlo_identifier):
+def getText(control_identifier):
     pass
 
 def setBackgroundOpacity(control_identifier, value):
@@ -106,7 +106,7 @@ def addOnValueChangeListener(control_identifier, value):
 def addProgressBar(control_identifier, value):
     pass
 
-def addInputText(control_identifier, value):
+def addTextInput(control_identifier, value):
     pass
 
 def setFocus(control_identifier, focus):

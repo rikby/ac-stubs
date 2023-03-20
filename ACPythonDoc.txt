@@ -263,7 +263,8 @@ The function returns 1 on success, -1 otherwise
 It is possible to add a Progress Bar using the function
 The function returns the Progress Bar ID on success, -1 otherwise
         Input Text :
-- ac.addInputText(<CONTROL_IDENTIFIER>, <VALUE>)
+INVALID: ac.addInputText(<CONTROL_IDENTIFIER>, <VALUE>)
+- ac.addTextInput(<CONTROL_IDENTIFIER>, <VALUE>)
         <VALUE> must be a string
 It is possible to add an Input Text Field using the function
 The function returns the Input Text ID on success, -1 otherwise
