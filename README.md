@@ -1,27 +1,22 @@
 # Assetto Corsa dammy Python library
 Dummy library for Assetto Corsa native functions presented in Python.
 
-Actually, it has a single interface for `ac` module.
+Package (PyPi): [`ac-stubs`](https://pypi.org/project/ac-stubs/)
+It has a single interface for `ac` module.
 
-The main goal of this package: provide convenient autocomplete in IDE (tested in PyCharm).
+The main goal of this package is to provide convenient autocomplete in IDE (tested in PyCharm).
 
 [![Upload Python Package](https://github.com/rikby/ac-dummy-lib/actions/workflows/python-publish.yml/badge.svg)](https://github.com/rikby/ac-dummy-lib/actions/workflows/python-publish.yml)
 
 ## Installation to develop AC mod
 
-You will need to install the package:
+You will need to install the package in your environment:
 ```shell
-pip install AcDummyLib
+pip install ac-stubs
 ```
 
-Add following in your script instead of `import ac`:
-```python
-if __name__ == '__main__':
-    ### pip install AcDummyLib
-    from AcDummyLib import ac
-else:
-    import ac
-```
+Now if your PyCharm project is accessible to this package,
+after `import ac`, you should be able to use autocomplete.
 
 Now you can check your IDE, autocomplete shall work.
 
@@ -33,7 +28,8 @@ Or, you may raise an issue to highlight found discrepancies.
 
 ## Roadmap
 
-- Migrate function descriptions into the interface file.
+- [ ] Connect GitHub with PyPi and push builds automatically
+- [ ] Migrate function descriptions into the interface file.
 
 ## References
 

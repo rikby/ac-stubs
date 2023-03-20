@@ -1,219 +1,149 @@
-def getCarState(car_identifier, info_identifier, optional_identifier):
-    pass
+def getCarState(car_identifier, info_identifier, optional_identifier): ...
 
-def log(value):
-    pass
+def log(value): ...
 
-def console(value):
-    pass
+def seekable(self): ...
 
-def newApp(value):
-    pass
+def console(value): ...
 
-def setTitle(control_identifier, title):
-    pass
+def newApp(value): ...
 
-def setSize(control_identifier, width, height):
-    pass
+def setTitle(control_identifier, title): ...
 
-def addLabel(control_identifier, value):
-    pass
+def setSize(control_identifier, width, height): ...
 
-def setPosition(control_identifier, x, y):
-    pass
+def addLabel(control_identifier, value): ...
 
-def setIconPosition(control_identifier, x, y):
-    pass
+def setPosition(control_identifier, x, y): ...
 
-def setTitlePosition(control_identifier, x, y):
-    pass
+def setIconPosition(control_identifier, x, y): ...
 
-def getPosition(control_identifier):
-    pass
+def setTitlePosition(control_identifier, x, y): ...
 
-def setText(control_identifier, value):
-    pass
+def getPosition(control_identifier): ...
 
-def getText(control_identifier):
-    pass
+def setText(control_identifier, value): ...
 
-def setBackgroundOpacity(control_identifier, value):
-    pass
+def getText(control_identifier): ...
 
-def drawBackground(control_identifier, value):
-    pass
+def setBackgroundOpacity(control_identifier, value): ...
 
-def drawBorder(control_identifier, value):
-    pass
+def drawBackground(control_identifier, value): ...
 
-def setBackgroundTexture(control_identifier, path):
-    pass
+def drawBorder(control_identifier, value): ...
 
-def setFontAlignment(control_identifier, alignment):
-    pass
+def setBackgroundTexture(control_identifier, path): ...
 
-def setBackgroundColor(control_identifier, r, g, b):
-    pass
+def setFontAlignment(control_identifier, alignment): ...
 
-def setVisible(control_identifier, value):
-    pass
+def setBackgroundColor(control_identifier, r, g, b): ...
 
-def addOnAppActivatedListener(control_identifier, value):
-    pass
+def setVisible(control_identifier, value): ...
 
-def addOnAppDismissedListener(control_identifier, value):
-    pass
+def addOnAppActivatedListener(control_identifier, value): ...
 
-def addRenderCallback(control_identifier, value):
-    pass
+def addOnAppDismissedListener(control_identifier, value): ...
 
-def setFontColor(control_identifier, r, g, b, a):
-    pass
+def addRenderCallback(control_identifier, value): ...
 
-def addButton(control_identifier, value):
-    pass
+def setFontColor(control_identifier, r, g, b, a): ...
 
-def addOnClickedListener(control_identifier, value):
-    pass
+def addButton(control_identifier, value): ...
 
-def addGraph(control_identifier, value):
-    pass
+def addOnClickedListener(control_identifier, value): ...
 
-def addSerieToGraph(control_identifier, r, g, b):
-    pass
+def addGraph(control_identifier, value): ...
 
-def addValueToGraph(control_identifier, serie_index, value):
-    pass
+def addSerieToGraph(control_identifier, r, g, b): ...
 
-def setRange(control_identifier, min_value, max_value):
-    pass
+def addValueToGraph(control_identifier, serie_index, value): ...
 
-def addSpinner(control_identifier, value):
-    pass
+def setRange(control_identifier, min_value, max_value): ...
 
-def setValue(control_identifier, value):
-    pass
+def addSpinner(control_identifier, value): ...
 
-def getValue(control_identifier):
-    pass
+def setValue(control_identifier, value): ...
 
-def setStep(control_identifier, value):
-    pass
+def getValue(control_identifier): ...
 
-def addOnValueChangeListener(control_identifier, value):
-    pass
+def setStep(control_identifier, value): ...
 
-def addProgressBar(control_identifier, value):
-    pass
+def addOnValueChangeListener(control_identifier, value): ...
 
-def addTextInput(control_identifier, value):
-    pass
+def addProgressBar(control_identifier, value): ...
 
-def setFocus(control_identifier, focus):
-    pass
+def addTextInput(control_identifier, value): ...
 
-def addOnValidateListener(control_identifier, value):
-    pass
+def setFocus(control_identifier, focus): ...
 
-def addListBox(control_identifier, name):
-    pass
+def addOnValidateListener(control_identifier, value): ...
 
-def addItem(control_identifier, name):
-    pass
+def addListBox(control_identifier, name): ...
 
-def removeItem(control_identifier, id):
-    pass
+def addItem(control_identifier, name): ...
 
-def getItemCount(control_identifier):
-    pass
+def removeItem(control_identifier, id): ...
 
-def setItemNumberPerPage(control_identifier, number):
-    pass
+def getItemCount(control_identifier): ...
 
-def highlightListBoxItem(control_identifier, id):
-    pass
+def setItemNumberPerPage(control_identifier, number): ...
 
-def addOnListBoxSelectionListener(control_identifier, value):
-    pass
+def highlightListBoxItem(control_identifier, id): ...
 
-def addOnListBoxDeselectionListener(control_identifier, value):
-    pass
+def addOnListBoxSelectionListener(control_identifier, value): ...
 
-def setAllowDeselection(control_identifier, allow_deselection):
-    pass
+def addOnListBoxDeselectionListener(control_identifier, value): ...
 
-def setAllowMultiSelection(control_identifier, allow_multi_selection):
-    pass
+def setAllowDeselection(control_identifier, allow_deselection): ...
 
-def getSelectedItems(control_identifier):
-    pass
+def setAllowMultiSelection(control_identifier, allow_multi_selection): ...
 
-def addCheckBox(control_identifier, value):
-    pass
+def getSelectedItems(control_identifier): ...
 
-def addOnCheckBoxChanged(control_identifier, value):
-    pass
+def addCheckBox(control_identifier, value): ...
 
-def isAcLive():
-    pass
+def addOnCheckBoxChanged(control_identifier, value): ...
 
-def restart():
-    pass
+def isAcLive(): ...
 
-def isCarInPitlane():
-    pass
+def restart(): ...
 
-def getCarSkin(car_id):
-    pass
+def isCarInPitlane(): ...
 
-def getDriverNationCode(car_id):
-    pass
+def getCarSkin(car_id): ...
 
-def getCurrentSplits(car_id):
-    pass
+def getDriverNationCode(car_id): ...
 
-def getTrackLength(car_id):
-    pass
+def getCurrentSplits(car_id): ...
 
-def getWindSpeed():
-    pass
+def getTrackLength(car_id): ...
 
-def getWindDirection():
-    pass
+def getWindSpeed(): ...
 
-def isAIControlled():
-    pass
+def getWindDirection(): ...
 
-def getCarEngineBrakeCount():
-    pass
+def isAIControlled(): ...
 
-def getCarPowerControllerCount():
-    pass
+def getCarEngineBrakeCount(): ...
 
-def freeCameraSetClearColor(r, g, b, alpha):
-    pass
+def getCarPowerControllerCount(): ...
 
-def freeCameraMoveForward(float):
-    pass
+def freeCameraSetClearColor(r, g, b, alpha): ...
 
-def freeCameraMoveRight(float):
-    pass
+def freeCameraMoveForward(float): ...
 
-def freeCameraMoveUpWorld(float):
-    pass
+def freeCameraMoveRight(float): ...
 
-def freeCameraRotatePitch(float):
-    pass
+def freeCameraMoveUpWorld(float): ...
 
-def freeCameraRotateHeading(float):
-    pass
+def freeCameraRotatePitch(float): ...
 
-def freeCameraRotateRoll(float):
-    pass
+def freeCameraRotateHeading(float): ...
 
-def sendChatMessage(string_msg):
-    pass
+def freeCameraRotateRoll(float): ...
 
-def addOnChatMessageListener(ac_window_id, call_back_function):
-    pass
+def sendChatMessage(string_msg): ...
+
+def addOnChatMessageListener(ac_window_id, call_back_function): ...
+
 

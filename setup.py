@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.2.0'
-DESCRIPTION = 'Assetto Corsa dummy library.'
-LONG_DESCRIPTION = 'Assetto Corsa dummy library for "ac" object. Useful for autocompletion in IDE during development.'
+VERSION = '0.2.1'
+DESCRIPTION = 'Assetto Corsa stubs library.'
+LONG_DESCRIPTION = 'Assetto Corsa stubs library for "ac" object. Useful for autocompletion in IDE during development.'
 
 # Setting up
 setup(
-    name='AcDummyLib',
+    name='ac-stubs',
     version=VERSION,
     author='Kirby R',
     author_email='<andkirby@gmail.com>',
