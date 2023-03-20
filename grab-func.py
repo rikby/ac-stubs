@@ -24,7 +24,15 @@ def extract_ac_functions(text):
 
 def extract_function_args(function_args):
     # Remove any spaces in the arguments string and the triangle brackets
-    function_args = function_args.replace(' ', '').replace('<', '').replace('>', '')
+    function_args = function_args\
+        .replace(' ', '')\
+        .replace('<', '')\
+        .replace('>', '')
+
+    # Fix type in a variable name
+    function_args = function_args\
+        .replace('CONTROLO_IDENTIFIER', 'CONTROL_IDENTIFIER')\
+
     # Split the arguments string by commas
     args_list = function_args.split(',')
     # Create a dictionary to store the function arguments and their default values
@@ -82,5 +90,5 @@ if __name__ == '__main__':
     ac_functions_str = create_dummy_ac_functions(ac_functions)
 
     # Write the dummy AC module to a Python file
-    with open('ac.py', 'w') as file:
+    with open('AcDummyLib/ac.pyi', 'w') as file:
         file.write(ac_functions_str)
