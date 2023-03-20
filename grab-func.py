@@ -18,6 +18,8 @@ def extract_ac_functions(text):
 def extract_function_args(function_args):
     # Remove any spaces in the arguments string and the triangle brackets
     function_args = function_args.replace(' ', '').replace('<', '').replace('>', '')
+    # Replace "CONTROLO_IDENTIFIER" with "CONTROL_IDENTIFIER" (case insensitive)
+    function_args = re.sub(r'(?i)CONTROLO_IDENTIFIER', 'CONTROL_IDENTIFIER', function_args)
     # Split the arguments string by commas
     args_list = function_args.split(',')
     # Create a dictionary to store the function arguments and their default values
@@ -27,28 +29,25 @@ def extract_function_args(function_args):
         if '/*OPTIONAL*/' in arg:
             # Remove the optional comment and add the default value None
             arg_name = arg.replace('/*OPTIONAL*/', '').split(':')[0].lower()
-            args_dict[arg_name] = 'None'
+            args_dict[arg_name] = None
         else:
             arg_name = arg.split(':')[0].lower()
             args_dict[arg_name] = None
     return args_dict
 
-def create_dummy_ac_object(ac_functions):
-    ac_object = 'class ac:\n'
+def create_dummy_ac_functions(ac_functions):
+    ac_functions_str = ''
     for function_name, function_args in ac_functions.items():
         # Convert function args dictionary into a list of argument strings
-        args_list = ['self']
-        for arg_name, default_value in function_args.items():
-            if default_value is None:
-                arg_str = arg_name
-            else:
-                arg_str = f"{arg_name} = {default_value}"
+        args_list = []
+        for arg_name in function_args.keys():
+            arg_str = arg_name
             args_list.append(arg_str)
         args_str = ', '.join(args_list)
-        # Generate the function string and add it to the ac object
-        function_str = f'    def {function_name}({args_str}):\n        pass\n'
-        ac_object += function_str
-    return ac_object
+        # Generate the function string and add it to the ac_functions string
+        function_str = f'def {function_name}({args_str}):\n    pass\n\n'
+        ac_functions_str += function_str
+    return ac_functions_str
 
 if __name__ == '__main__':
     # Open the PDF file and extract the text
@@ -58,9 +57,7 @@ if __name__ == '__main__':
     # Extract the AC functions and their arguments from the text
     ac_functions = extract_ac_functions(input_text)
 
-    # Create a dummy "ac" object with the function signatures
-    ac_object = create_dummy_ac_object(ac_functions)
-
-    # Write the "ac" object to a Python file
-    with open('ac_dummy.py', 'w') as file:
-        file.write(ac_object)
+    # Create a dummy "ac.py" file with the function signatures
+    ac_functions_str = create_dummy_ac_functions(ac_functions)
+    with open('ac.py', 'w') as file:
+        file.write(ac_functions_str)
