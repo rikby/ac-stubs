@@ -5,6 +5,8 @@ Actually, it has a single interface for `ac` module.
 
 The main goal of this package: provide convenient autocomplete in IDE (tested in PyCharm).
 
+[![Upload Python Package](https://github.com/rikby/ac-dummy-lib/actions/workflows/python-publish.yml/badge.svg)](https://github.com/rikby/ac-dummy-lib/actions/workflows/python-publish.yml)
+
 ## Installation to develop AC mod
 
 You will need to install the package:
