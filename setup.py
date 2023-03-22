@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.4.0'
+VERSION = '0.4.1'
 DESCRIPTION = 'Assetto Corsa stubs library.'
 LONG_DESCRIPTION = 'Assetto Corsa stubs library for "ac" object. Useful for autocompletion in IDE during development.'
 
