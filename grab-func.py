@@ -4,16 +4,39 @@
 # Not bad at the end though
 
 import re
+import importlib.util
+import sys
+import os
 
 
-def extract_ac_functions(text):
+def import_from_path(module_name, module_path):
+    spec = importlib.util.spec_from_file_location(module_name, module_path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+# Get the path of the `ac-stubs` directory
+ac_stubs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ac-stubs")
+
+# Import the `ac` module from the `__init__.py` file within the `ac-stubs` directory
+ac = import_from_path("ac", os.path.join(ac_stubs_dir, "__init__.py"))
+
+
+def extract_functions(text):
     # Find all function definitions starting with "ac."
-    pattern = r'^\s*- ac\.(.*?)\((.*?)\)'
+    pattern = r'^\s*-\s?ac\.(.*?)\((.*?)\)'
     matches = re.findall(pattern, text, re.MULTILINE | re.DOTALL)
     # Create a dictionary to store the function names and their arguments
     ac_functions = {}
     for function_match in matches:
         function_name = function_match[0]
+
+        # fix incorrect name of function in the document
+        if 'addInputText' == function_name:
+            function_name = 'addTextInput'
+
         function_args = function_match[1]
         # Extract the arguments and their default values
         args_dict = extract_function_args(function_args)
@@ -24,14 +47,14 @@ def extract_ac_functions(text):
 
 def extract_function_args(function_args):
     # Remove any spaces in the arguments string and the triangle brackets
-    function_args = function_args\
-        .replace(' ', '')\
-        .replace('<', '')\
+    function_args = function_args \
+        .replace(' ', '') \
+        .replace('<', '') \
         .replace('>', '')
 
     # Fix type in a variable name
-    function_args = function_args\
-        .replace('CONTROLO_IDENTIFIER', 'CONTROL_IDENTIFIER')\
+    function_args = function_args \
+        .replace('CONTROLO_IDENTIFIER', 'CONTROL_IDENTIFIER')
 
     # Split the arguments string by commas
     args_list = function_args.split(',')
@@ -61,9 +84,13 @@ def extract_function_args(function_args):
     return args_dict
 
 
-def create_dummy_ac_functions(ac_functions):
+def create_stub_functions(ac_functions):
     function_str = ''
     for function_name, function_args in ac_functions.items():
+
+        if hasattr(ac, function_name):
+            continue
+
         # Convert function args dictionary into a list of argument strings
         args_list = []
         for arg_name, default_value in function_args.items():
@@ -74,8 +101,25 @@ def create_dummy_ac_functions(ac_functions):
             args_list.append(arg_str)
         args_str = ', '.join(args_list)
         # Generate the function string and add it to the ac object
-        function_str += f'def {function_name}({args_str}):\n    pass\n\n'
+        function_str += f'\n\ndef {function_name}({args_str}): ...\n'
     return function_str
+
+
+def write_functions(content: str):
+    _file = 'ac-stubs/__init__.py'
+
+    # Check if the file exists
+    if os.path.exists(_file):
+        file_mode = 'a'  # Append mode if the file exists
+    else:
+        file_mode = 'w'  # Write mode if the file doesn't exist
+
+    # Write or append the content from ac_functions_str if it's not empty
+    if content:
+        with open(_file, file_mode) as _file:
+            _file.write(content)
+    else:
+        print("No content to write or append.")
 
 
 if __name__ == '__main__':
@@ -84,11 +128,9 @@ if __name__ == '__main__':
         input_text = file.read()
 
     # Extract the AC functions and their arguments from the text
-    ac_functions = extract_ac_functions(input_text)
+    ac_functions = extract_functions(input_text)
 
     # Create dummy functions for the AC module
-    ac_functions_str = create_dummy_ac_functions(ac_functions)
-
-    # Write the dummy AC module to a Python file
-    with open('ac-stubs/__init__.py', 'w') as file:
-        file.write(ac_functions_str)
+    write_functions(
+        create_stub_functions(ac_functions)
+    )
