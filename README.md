@@ -39,6 +39,7 @@ Or, you may raise an issue to highlight found discrepancies.
 #### Source documents:
 - https://docs.google.com/document/d/13trBp6K1TjWbToUQs_nfFsB291-zVJzRZCNaTYt4Dzc/pub
 - https://assettocorsamods.net/attachments/inofficial_acpythondoc_v2-pdf.7415/
+- https://www.assettocorsa.net/forum/index.php?threads/python-doc-update-25-05-2017.517/
 
 #### Initial forum threads:
 - https://assettocorsamods.net/threads/doc-python-doc.59
