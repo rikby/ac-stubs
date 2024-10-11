@@ -17,16 +17,53 @@ def getCarState(car_identifier, info_identifier, optional_identifier=None):
     pass
 
 
-def getDriverName(car_id: int): ...
+def getDriverName(car_id: int):
+    """
+    Retrieves the name of the driver associated with a specified car.
+
+    Parameters:
+        car_id: int - The unique identifier of the car whose driver name is being retrieved.
+
+    Returns:
+        str - The name of the driver.
+    """
 
 
-def getTrackName(car_id: int): ...
+def getTrackName(car_id: int) -> str:
+    """
+    Retrieves the name of the track associated with a specified car.
+
+    Parameters:
+        car_id: int - The unique identifier of the car whose track name is being retrieved.
+
+    Returns:
+        str - The name of the track.
+    """
 
 
-def getTrackConfiguration(car_id: int): ...
+def getTrackConfiguration(car_id: int) -> str:
+    """
+    Retrieves the configuration of the track associated with a specified car.
+
+    Parameters:
+        car_id: int - The unique identifier of the car whose track configuration is being retrieved.
+
+    Returns:
+        str - The configuration details of the track.
+    """
 
 
-def getCarName(car_id: int): ...
+def getCarName(car_id: int) -> str:
+    """
+    Retrieves the name of the car associated with a specified car ID.
+
+    Parameters:
+        car_id: int - The unique identifier of the car whose name is being retrieved.
+
+    Returns:
+        str - The name of the car.
+    """
+
 
 
 def getLastSplits(car_id: int): ...
@@ -230,7 +267,14 @@ def drawBorder(control_identifier: int, border_size: int):
     """
 
 
-def setBackgroundTexture(control_identifier: int, path: str): ...
+def setBackgroundTexture(control_identifier: int, path: str):
+    """
+    Sets the background texture of a control element using the specified file path.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        path: str - The file path to the texture image to be used as the background.
+    """
 
 
 def setFontAlignment(control_identifier: int, alignment): ...
@@ -381,13 +425,37 @@ def glBegin(primitive_id): ...
 def glEnd(): ...
 
 
-def glVertex2f(x: int, y:int): ...
+def glVertex2f(x: int, y: int):
+    """
+    Specifies a vertex in 2D space for rendering in OpenGL.
+
+    Parameters:
+    x: int - The x-coordinate of the vertex.
+    y: int - The y-coordinate of the vertex.
+    """
 
 
-def glColor3f(r: int, g: int, b: int): ...
+def glColor3f(r: int, g: int, b: int):
+    """
+    Sets the color using RGB values for rendering in OpenGL.
+
+    Parameters:
+    r: int - The red component of the color (0-255).
+    g: int - The green component of the color (0-255).
+    b: int - The blue component of the color (0-255).
+    """
 
 
-def glColor4f(r: int, g: int, b: int, a): ...
+def glColor4f(r: int, g: int, b: int, a: int):
+     """
+    Sets the color using RGBA values for rendering in OpenGL.
+
+    Parameters:
+        r: int - The red component of the color (0-255).
+        g: int - The green component of the color (0-255).
+        b: int - The blue component of the color (0-255).
+        a: int - The alpha (transparency) component of the color (0-255).
+    """
 
 
 def glQuad(x: int, y:int, width: int, height: int): ...
