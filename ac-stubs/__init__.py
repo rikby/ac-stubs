@@ -87,7 +87,17 @@ def isConnected(car_id: int): ...
 def getCarBallast(car_id: int): ...
 
 
-def getCarMinHeight(car_id: int): ...
+def getCarMinHeight(car_id: int) -> int:
+    """
+    Retrieves the minimum height (ground clearance) of a specified car.
+
+    Parameters:
+        car_id: int - The unique identifier of the car whose minimum height is being retrieved.
+
+    Returns:
+        int - The minimum height (ground clearance) of the car.
+    """
+
 
 
 def getServerName(): ...
@@ -138,10 +148,23 @@ def focusCar(car_id: int): ...
 def getFocusedCar() -> int: ...
 
 
-def log(value): ...
+def log(log_message: str):
+    """
+    Logs a message for debugging or informational purposes.
+
+    Parameters:
+        log_message: str - The message to be logged.
+    """
 
 
-def console(value): ...
+def console(console_message: str):
+    """
+    Outputs a message to the console for debugging or informational purposes.
+
+    Parameters:
+        console_message: str - The message to be output to the console.
+    """
+
 
 
 def newApp(app_name: str) -> Any:
@@ -156,7 +179,15 @@ def newApp(app_name: str) -> Any:
     """
 
 
-def setTitle(control_identifier: int, title): ...
+def setTitle(control_identifier: int, title: str):
+    """
+    Sets the title of a control element.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        title: str - The title text to set for the control element.
+    """
+
 
 
 def setSize(control_identifier: int, width: int, height: int):
@@ -277,40 +308,130 @@ def setBackgroundTexture(control_identifier: int, path: str):
     """
 
 
-def setFontAlignment(control_identifier: int, alignment): ...
+def setFontAlignment(control_identifier: int, alignment: str):
+    """
+    Sets the text alignment for the font of a control element.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        alignment: str - The alignment setting for the font (e.g., "left", "center", "right").
+    """
 
 
-def setBackgroundColor(control_identifier: int, r: int, g: int, b: int): ...
+
+def setBackgroundColor(control_identifier: int, r: int, g: int, b: int):
+    """
+    Sets the background color of a control element using RGB values.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        r: int - The red component of the color (0-255).
+        g: int - The green component of the color (0-255).
+        b: int - The blue component of the color (0-255).
+    """
 
 
-def setVisible(control_identifier: int, value): ...
+
+def setVisible(control_identifier: int, state: bool):
+    """
+    Sets the visibility state of a control element.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element
+        state: bool - The visibility state to set for the control element (True for visible, False for hidden).
+    """
 
 
-def addOnAppActivatedListener(control_identifier: int, value): ...
+def addOnAppActivatedListener(control_identifier: int, OnAppActivatedListener: Callable):
+    """
+    Adds a listener that triggers when an app is activated.
+
+    Parameters:
+    control_identifier: int - The unique identifier of the control element.
+    OnAppActivatedListener: Callable - The listener function to be called when the app is activated.
+    """
 
 
-def addOnAppDismissedListener(control_identifier: int, value): ...
+def addOnAppDismissedListener(control_identifier: int, OnAppDismissedListener: Callable):
+    """
+    Adds a listener that triggers when an app is dismissed.
+
+    Parameters:
+    control_identifier: int - The unique identifier of the control element.
+    OnAppDismissedListener: Callable - The listener function to be called when the app is dismissed.
+    """
 
 
-def addRenderCallback(control_identifier: int, value): ...
+
+def addRenderCallback(control_identifier: int, onRender: Callable):
+    """
+    Adds a render callback to a control element. The callback is invoked during rendering 
+    and receives a delta time parameter.
+
+    Parameters:
+    control_identifier: int - The unique identifier of the control element to which the render callback is added.
+    onRender: Callable - The callback function to be called during rendering. This function should accept one 
+                         parameter: deltaT (int), representing the time elapsed since the last render call.
+    """
 
 
-def setFontColor(control_identifier: int, r: int, g: int, b: int, a): ...
+def setFontColor(control_identifier: int, r: int, g: int, b: int, a: int):
+    """
+    Sets the font color of a control element using RGBA values.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        r: int - The red component of the color (0-255).
+        g: int - The green component of the color (0-255).
+        b: int - The blue component of the color (0-255).
+        a: int - The alpha (transparency) component of the color (0-255).
+    """
 
 
-def setFontSize(control_identifier: int, value): ...
+def setFontSize(control_identifier: int, size: int):
+    """
+    Sets the font size of a control element.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        size: int - The font size to set for the control element.
+    """
 
 
-def initFont(_, fontname, italic, bold): ...
+def initFont(_: Any, fontname: str, italic: int, bold: int):
+    """
+    Initializes a font with specified attributes.
+
+    Parameters:
+        _: Any - Unused parameter placeholder.
+        fontname: str - The name of the font to be initialized.
+        italic: int - Indicates whether the font is italic (1 for italic, 0 for regular).
+        bold: int - Indicates whether the font is bold (1 for bold, 0 for regular).
+    """
 
 
 def setCustomFont(control_identifier: int, fontname, italic, bold): ...
 
 
-def addButton(control_identifier: int, value): ...
+def addButton(control_identifier: int, button_text: str):
+    """
+    Adds a button to a control element with the specified text.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        button_text: str - The text to display on the button.
+    """
 
 
-def addOnClickedListener(control_identifier: int, value): ...
+def addOnClickedListener(control_identifier: int, OnClickedListener: Callable):
+    """
+    Adds a click listener to a control element, triggering when the button is clicked.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        OnClickedListener: Callable - The listener function to be called when the button is clicked.
+    """
+
 
 
 def addGraph(control_identifier: int, value): ...
@@ -322,22 +443,72 @@ def addSerieToGraph(control_identifier: int, r: int, g: int, b: int): ...
 def addValueToGraph(control_identifier: int, serie_index, value): ...
 
 
-def setRange(control_identifier: int, min_value, max_value, max_points=0): ...
+def setRange(control_identifier: int, min_value: int, max_value: int, max_points: int = 0):
+    """
+    Sets the range of values for a control element, with an optional maximum number of points.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        min_value: int - The minimum value of the range.
+        max_value: int - The maximum value of the range.
+        max_points: int, optional - The maximum number of points within the range (default is 0, which implies no limit).
+    """
 
 
-def addSpinner(control_identifier: int, value): ...
+def addSpinner(control_identifier: int, text: str): # I only seen this with spaces so no idea where text goes
+    """
+    Adds a spinner (loading indicator) to a control element with the specified text.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element to which the spinner is added.
+        text: str - The text to display alongside the spinner.
+    """
 
 
-def setValue(control_identifier: int, value): ...
+
+def setValue(control_identifier: int, current_page_number: int):
+    """
+    Sets the current value or page number for a control element.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        current_page_number: int - The value or page number to set for the control element.
+    """
 
 
-def getValue(control_identifier: int): ...
+
+def getValue(control_identifier: int) -> int:
+    """
+    Retrieves the current value associated with a control element.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+
+    Returns:
+        int - The current value of the control element.
+    """
 
 
-def setStep(control_identifier: int, value): ...
+def setStep(control_identifier: int, step_value: int):
+    """
+    Sets the step value for a control element, defining the increment or decrement step.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element.
+        step_value: int - The step increment or decrement value.
+    """
 
 
-def addOnValueChangeListener(control_identifier: int, value): ...
+
+def addOnValueChangeListener(control_identifier: int, OnValueChangeListener: Callable):
+    """
+    Adds a listener that triggers when the value of a control element changes.
+
+    Parameters:
+    control_identifier: int - The unique identifier of the control element to which the value change listener is added.
+    OnValueChangeListener: Callable - The listener function to be called when the value changes. This function should 
+                                      accept parameters relevant to the value change (parameters unknown).
+    """
 
 
 def addProgressBar(control_identifier: int, value): ...
@@ -407,22 +578,57 @@ def setAllowMultiSelection(control_identifier: int, allow_multi_selection): ...
 def getSelectedItems(control_identifier: int): ...
 
 
-def addCheckBox(control_identifier: int, value): ...
+def addCheckBox(control_identifier: int, text_label: str):
+    """
+    Adds a checkbox to a control element with the specified label text.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the control element to which the checkbox is added.
+        text_label: str - The text label to display alongside the checkbox.
+    """
 
 
-def addOnCheckBoxChanged(control_identifier: int, value): ...
+def addOnCheckBoxChanged(control_identifier: int, OnCheckBoxChanged: Callable):
+    """
+    Adds a listener that triggers when the state of a checkbox control element changes.
+
+    Parameters:
+        control_identifier: int - The unique identifier of the checkbox control element.
+        OnCheckBoxChanged: Callable - The listener function to be called when the checkbox state changes. 
+                                   This function should typically accept parameters indicating the new state.
+    """
 
 
 def addTextBox(control_identifier: int, name): ...
 
 
-def newTexture(path): ...
+def newTexture(path: str) -> int:
+    """
+    Creates a new texture from the specified file path.
+
+    Parameters:
+        path: str - The file path to the texture image.
+
+    Returns:
+        int - The identifier of the newly created texture.
+    """
 
 
-def glBegin(primitive_id): ...
+def glBegin(primitive_id):
+    """
+    Delimits the beginning of a sequence of vertices that defines a primitive or group of primitives in OpenGL.
+
+    Parameters:
+    primitive_id: int - The identifier for the type of primitive to render (e.g., GL_TRIANGLES, GL_LINES).
+    """
 
 
-def glEnd(): ...
+def glEnd():
+    """
+    Delimits the end of a sequence of vertices for the current primitive in OpenGL.
+    
+    No parameters.
+    """
 
 
 def glVertex2f(x: int, y: int):
@@ -458,10 +664,29 @@ def glColor4f(r: int, g: int, b: int, a: int):
     """
 
 
-def glQuad(x: int, y:int, width: int, height: int): ...
+def glQuad(x: int, y:int, width: int, height: int):
+    """
+    Draws a quadrilateral (quad) at the specified position with the given dimensions in OpenGL.
+
+    Parameters:
+        x: int - The x-coordinate of the bottom-left corner of the quad.
+        y: int - The y-coordinate of the bottom-left corner of the quad.
+        width: int - The width of the quad.
+        height: int - The height of the quad.
+    """
 
 
-def glQuadTextured(x: int, y:int, width: int, height: int, texture_id): ...
+def glQuadTextured(x: int, y: int, width: int, height: int, texture_id: int):
+    """
+    Draws a textured quadrilateral (quad) at the specified position with the given dimensions and applies a texture.
+
+    Parameters:
+        x: int - The x-coordinate of the bottom-left corner of the quad.
+        y: int - The y-coordinate of the bottom-left corner of the quad.
+        width: int - The width of the quad.
+        height: int - The height of the quad.
+        texture_id: int - The identifier of the texture to apply to the quad.
+    """
 
 
 def isAcLive(): ...
